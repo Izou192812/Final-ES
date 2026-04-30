@@ -24,7 +24,6 @@ class BorrowManagement:
     def return_book(self, borrow):
         borrow["return_date"] = datetime.now()
 
-        # tính tiền phạt
         if borrow["return_date"] > borrow["due_date"]:
             late_days = (borrow["return_date"] - borrow["due_date"]).days
             borrow["penalty"] = late_days * 5000
